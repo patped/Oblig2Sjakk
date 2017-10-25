@@ -5,7 +5,7 @@ import javafx.scene.shape.Rectangle;
 
 public abstract class Brikke extends Rectangle {
 
-  private Posisjon posisjon;
+  protected Posisjon posisjon;
   private boolean farge;
   protected Brett brett;
   final double lendge = 55;
