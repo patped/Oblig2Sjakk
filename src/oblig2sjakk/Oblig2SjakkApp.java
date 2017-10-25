@@ -106,6 +106,8 @@ public class Oblig2SjakkApp extends Application {
           bakgrunn.add(r, kolonne, rad);
         }
         if (spillebrettet.brikker[kolonne][rad] == null) {
+          // TODO
+          // MÅ FJERNE BRIKKE SOM FLYTTES
           Rectangle r = new Rectangle();
           r.setHeight(RECTSTØRRELSE);
           r.setWidth(RECTSTØRRELSE);
@@ -130,7 +132,6 @@ public class Oblig2SjakkApp extends Application {
             addBonde(kolonne, rad, true);
           }
         }
-
       }
     }
   }
