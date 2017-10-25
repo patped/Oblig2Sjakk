@@ -45,18 +45,14 @@ public class Tårn extends Brikke {
 
     if (x2 < x) {
       int tmp = x;
-      x = x2 + 1;
+      x = x2;
       x2 = tmp;
-    } else {
-      x2 -= 1;
     }
 
     if (y2 < y) {
       int tmp = y;
-      y = y2 + 1;
+      y = y2;
       y2 = tmp;
-    } else {
-      y2 -= 1;
     }
 
     double a = (y2 - y) / (x2 - x);
@@ -66,17 +62,19 @@ public class Tårn extends Brikke {
       for (int kolonne = 0; kolonne < brett.BRETTSTORRELSE; kolonne++) {
         if (brett.brikker[kolonne][rad] != null) {
           Posisjon p = brett.brikker[kolonne][rad].posisjon;
-          if (p.getRad() == a * p.getKolonne() + b
-              && p.getKolonne() + p.getRad() > x + y
-              && p.getKolonne() + p.getRad() < x2 + y2) {
+          if (rad == (int )(a * kolonne + b)
+            //  && kolonne + rad > x + y
+            //  && kolonne + rad < x2 + y2)
+              ){
+            System.out.println("kolonne rad " + kolonne + rad);
+            System.out.println("x y " + x + y);
+            System.out.println("x2 y2 " + x2 + y2);
             System.out.println("heihei");
-            return false;
+            //return false;
           }
         }
       }
     }
-    System.out.println(nyPosisjon.getRad());
-    System.out.println(nyPosisjon.getKolonne());
     Brikke brikke = brett.brikker[nyPosisjon.getKolonne()][nyPosisjon.getRad()];
     return !(brikke != null && brikke.isFarge() == this.isFarge());
   }
