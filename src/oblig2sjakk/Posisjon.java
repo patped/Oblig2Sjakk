@@ -18,5 +18,13 @@ public class Posisjon {
     rad = (posisjon.charAt(1) - 48) * -1 + 8;
     kolonne = (posisjon.charAt(1) - 97);
   }
+
+  public int getRad() {
+    return rad;
+  }
+  
+  public int getKolonne() {
+    return kolonne;
+  }
   
 }
