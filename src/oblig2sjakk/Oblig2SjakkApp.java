@@ -187,7 +187,10 @@ public class Oblig2SjakkApp extends Application {
 
     @Override
     public void handle(ActionEvent event) {
-      spillebrettet.flyttBrikke(valgtBrikkeTekst.getText(), flyttBrikkeTekst.getText());
+      if(spillebrettet.flyttBrikke(valgtBrikkeTekst.getText(), flyttBrikkeTekst.getText())) {
+        lagBrett(spillebrettet);
+      }
+      
     }
 
   }
