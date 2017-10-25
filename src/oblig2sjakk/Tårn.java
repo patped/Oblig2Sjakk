@@ -16,6 +16,15 @@ public class Tårn extends Brikke {
     }
   }
 
+  public Tårn(int kolonne, int rad, boolean farge, Brett brett) {
+    super(kolonne, rad, farge, brett);
+    if (farge == false) {
+      this.setFill(new ImagePattern(new Image("/svarttårn.png")));
+    } else {
+      this.setFill(new ImagePattern(new Image("/hvittårn.png")));
+    }
+  }
+
   @Override
   public String brikkenavn() {
     return BOKSTAV;
