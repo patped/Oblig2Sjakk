@@ -68,9 +68,8 @@ class Brett {
       } else {
         Brikke fraBrikke = getBrikke(fraRute);
         if (fraBrikke.flyttTil(tilRute)) {
-          System.out.println("Vi prøver å flytte brikke");
           brikker[tilRute.charAt(0) - 97][(tilRute.charAt(1) - 48) * -1 + 8] = fraBrikke;
-          brikker[tilRute.charAt(0) - 97][(tilRute.charAt(1) - 48) * -1 + 8] = null;
+          brikker[fraRute.charAt(0) - 97][(fraRute.charAt(1) - 48) * -1 + 8] = null;
         } else {
           return false;
         }
