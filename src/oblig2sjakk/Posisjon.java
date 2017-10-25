@@ -18,6 +18,11 @@ public class Posisjon {
     kolonne = (posisjon.charAt(0) - 97);
     rad = (posisjon.charAt(1) - 48) * -1 + 8;
   }
+  
+  public Posisjon(int kolonne, int rad) {
+    this.kolonne = kolonne;
+    this.rad = rad;
+  }
 
   public int getRad() {
     return rad;
