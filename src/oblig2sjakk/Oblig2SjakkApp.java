@@ -136,7 +136,7 @@ public class Oblig2SjakkApp extends Application {
   }
 
   private void addTårn(int kolonne, int rad, boolean svartEllerHvit) {
-    Brikke tårnBrikke = new Tårn("a1", svartEllerHvit, spillebrettet);
+    Brikke tårnBrikke = new Tårn(kolonne, rad, svartEllerHvit, spillebrettet);
     forgrunn.add(tårnBrikke, kolonne, rad);
   }
 
