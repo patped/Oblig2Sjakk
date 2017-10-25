@@ -63,19 +63,10 @@ public class Oblig2SjakkApp extends Application {
     Scene scene = new Scene(rammeramme,
         (STØRRELSEBRETT * RECTSTØRRELSE) + RECTSTØRRELSE * 2 - 10,
         (STØRRELSEBRETT * RECTSTØRRELSE) + RECTSTØRRELSE * 2 + 25 - 10);
-    /*for (int rad = 0; rad < 8; rad++) {
-            for (int kolonne = 0; kolonne < 8; kolonne++) {
-                if (spillebrettet.brikker[kolonne][rad] != null) {
-                    System.out.println(kolonne + " og " + rad);
-                    System.out.println(spillebrettet.brikker[kolonne][rad].getClass());
-                } 
-            }
-            
-        }*/
 
     primaryStage.setTitle("Sjakk!");
     primaryStage.setScene(scene);
-    primaryStage.setResizable(false);
+    primaryStage.setResizable(true);
     primaryStage.show();
   }
 
