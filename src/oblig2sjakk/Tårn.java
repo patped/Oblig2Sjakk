@@ -33,6 +33,11 @@ public class Tårn extends Brikke {
   @Override
   public boolean erLovligTrekk(String tilPosisjon) {
     Posisjon nyPosisjon = new Posisjon(tilPosisjon);
+    if (posisjon.getRad() != nyPosisjon.getRad()
+        && posisjon.getKolonne() != nyPosisjon.getKolonne()) {
+      return false;
+    }
+
     int x = posisjon.getKolonne();
     int y = posisjon.getRad();
     int x2 = nyPosisjon.getKolonne();
