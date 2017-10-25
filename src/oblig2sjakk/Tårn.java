@@ -59,8 +59,8 @@ public class Tårn extends Brikke {
 
     for (int rad = 0; rad < brett.BRETTSTORRELSE; rad++) {
       for (int kolonne = 0; kolonne < brett.BRETTSTORRELSE; kolonne++) {
-        if (brett.brikker[rad][kolonne] != null) {
-          Posisjon p = brett.brikker[rad][kolonne].posisjon;
+        if (brett.brikker[kolonne][rad] != null) {
+          Posisjon p = brett.brikker[kolonne][rad].posisjon;
           if (p.getRad() == a * p.getKolonne() + b
               && p.getKolonne() + p.getRad() > x + y
               && p.getKolonne() + p.getRad() < x2 + y2) {
@@ -72,7 +72,7 @@ public class Tårn extends Brikke {
     }
     System.out.println(nyPosisjon.getRad());
     System.out.println(nyPosisjon.getKolonne());
-    Brikke brikke = brett.brikker[nyPosisjon.getRad()][nyPosisjon.getKolonne()];
+    Brikke brikke = brett.brikker[nyPosisjon.getKolonne()][nyPosisjon.getRad()];
     return !(brikke != null && brikke.isFarge() == this.isFarge());
   }
 }
