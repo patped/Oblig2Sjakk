@@ -1,45 +1,55 @@
-
 package oblig2sjakk;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public abstract class Brikke extends Rectangle{
-    
-    private String posisjon;
-    private boolean farge; 
-    protected Brett brett;
-    final double lendge = 55;
-    
+public abstract class Brikke extends Rectangle {
 
-    public Brikke(String posisjon, boolean farge, Brett brett) {
-        this.posisjon = posisjon;
-        this.farge = farge;
-        this.setHeight(lendge);
-        this.setWidth(lendge);
-        this.setFill(Color.TRANSPARENT);
-        this.brett = brett;
-    }
-   
-    public String getPosisjon() {
-        return posisjon;
-    }
+  private int rad;
+  private int kolonne;
+  private boolean farge;
+  protected Brett brett;
+  final double lendge = 55;
 
-    public boolean isFarge() {
-        return farge;
+  public Brikke(String posisjon, boolean farge, Brett brett) {
+    rad = (posisjon.charAt(1) - 48) * -1 + 8;
+    kolonne = (posisjon.charAt(1) - 97);
+    this.farge = farge;
+    this.setHeight(lendge);
+    this.setWidth(lendge);
+    this.setFill(Color.TRANSPARENT);
+    this.brett = brett;
+  }
+
+  public int getRad() {
+    return rad;
+  }
+
+  public int getKolonne() {
+    return kolonne;
+  }
+
+  private void setPosisjon(String rutenavn) {
+    rad = (rutenavn.charAt(1) - 48) * -1 + 8;
+    kolonne = (rutenavn.charAt(1) - 97);    
+  }
+
+  public boolean isFarge() {
+    return farge;
+  }
+
+  public abstract String brikkenavn();
+
+  public boolean flyttTil(String rutenavn) {
+    if (this.erLovligTrekk(rutenavn)) {
+      System.out.println("er erLovlig trekk true? ");
+      setPosisjon(rutenavn);
+      return true;
     }
-    public abstract String brikkenavn();
-            
-    public boolean flyttTil(String rutenavn){
-        if (this.erLovligTrekk(rutenavn)) {
-            System.out.println("er erLovlig trekk true? ");
-            this.posisjon = rutenavn;
-            return true;
-        }
-        return false;
-        
-    }
-    
-    public abstract boolean erLovligTrekk(String tilPosisjon);
-       
+    return false;
+
+  }
+
+  public abstract boolean erLovligTrekk(String tilPosisjon);
+
 }
