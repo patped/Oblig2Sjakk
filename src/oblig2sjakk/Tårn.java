@@ -33,44 +33,67 @@ public class Tårn extends Brikke {
   @Override
   public boolean erLovligTrekk(String tilPosisjon) {
     Posisjon nyPosisjon = new Posisjon(tilPosisjon);
-    if (posisjon.getRad() != nyPosisjon.getRad()
-        && posisjon.getKolonne() != nyPosisjon.getKolonne()) {
-      return false;
-    }
+    System.out.println("Nå: Er lovlig trekk");
+    boolean sjekker = true;
+    int valgtBokstav = posisjon.getKolonne();
+    System.out.println("valgtBokstav: " + valgtBokstav);
+    int valgtTall = posisjon.getRad();
+    System.out.println("valgtTall: " + valgtTall);
+    int tilBokstav = nyPosisjon.getKolonne();
+    System.out.println("tilBokstav: " + tilBokstav);
+    int tilTall = nyPosisjon.getRad();
+    System.out.println("tilTall: " + tilTall);
 
-    int x = posisjon.getKolonne();
-    int y = posisjon.getRad();
-    int x2 = nyPosisjon.getKolonne();
-    int y2 = nyPosisjon.getRad();
-
-    if (x2 < x) {
-      int tmp = x;
-      x = x2;
-      x2 = tmp;
-    }
-
-    if (y2 < y) {
-      int tmp = y;
-      y = y2;
-      y2 = tmp;
-    }
-
-    double a = (y2 - y) / (x2 - x) + 1;
-    double b = y - a * x;
-
-    for (int rad = 0; rad < brett.BRETTSTORRELSE; rad++) {
-      for (int kolonne = 0; kolonne < brett.BRETTSTORRELSE; kolonne++) {
-        if (brett.brikker[kolonne][rad] != null) {
-          Posisjon p = brett.brikker[kolonne][rad].posisjon;
-          if (rad == (int) (a * kolonne + b)
-              && kolonne + rad >= x + y
-              && kolonne + rad <= x2 + y2) {
-            return false;
+    if (valgtBokstav == tilBokstav // Sjekker om den løper på samme bokstavrekke og at tallet er ulikt
+        && valgtTall != tilTall) {
+      if (valgtTall - tilTall < 0) {//Sjekker om tårnet kan løpe mellom de to plassene.
+        for (int i = -1; i > valgtTall - tilTall; i--) {// Når den løper oppover på brettet.
+          if (brett.brikker[valgtBokstav][valgtTall] != null) {
+            sjekker = false;
+          }
+        }
+      } else {
+        for (int i = 1; i < valgtTall - tilTall; i++) {//Når den løper nedover på brettet.
+          if (brett.brikker[valgtBokstav][valgtTall] != null) {
+            sjekker = false;
           }
         }
       }
+      if (sjekker == true && brett.brikker[tilBokstav][tilTall] == null) {
+        return true;
+      }
+      System.out.println("Tester 1: " + (sjekker == true
+          && brett.brikker[tilBokstav][tilTall].isFarge() != this.isFarge()));
+      return (sjekker == true
+          && brett.brikker[tilBokstav][tilTall].isFarge() != this.isFarge());
+
     }
-    Brikke brikke = brett.brikker[nyPosisjon.getKolonne()][nyPosisjon.getRad()];
-    return !(brikke != null && brikke.isFarge() == this.isFarge());
+    if (valgtBokstav != tilBokstav // Sjekker om den løper på samme tall og at bokstaven er ulikt
+        && valgtTall == tilTall) {
+      System.out.println("Går jeg inn i IF-testen Bokstav ulik bokstav + tall er lik tall");
+      if (valgtBokstav - tilBokstav < 0) {//Sjekker om tårnet kan løpe mellom de to plassene.
+        for (int i = -1; i > valgtBokstav - tilBokstav; i--) {// Når den løper mot høyre på brettet.
+          if (brett.brikker[valgtBokstav - i][valgtTall] != null) {
+            sjekker = false;
+          }
+        }
+      } else {
+        for (int i = 1; i < valgtBokstav - tilBokstav; i++) {// Når den løper oppover på brettet.
+          if (brett.brikker[valgtBokstav - i][valgtTall] != null) {
+            sjekker = false;
+          }
+        }
+      }
+      if (sjekker == true && brett.brikker[tilBokstav][tilTall] == null) {
+        return true;
+      }
+      System.out.println("Nr 2: " + (sjekker == true
+          && brett.brikker[tilBokstav][tilTall].isFarge() != this.isFarge()));
+      return (sjekker == true
+          && brett.brikker[tilBokstav][tilTall].isFarge() != this.isFarge());
+    }
+    System.out.println("Test 3: " + (valgtBokstav != tilBokstav // Sjekker om den løper på samme tall og at bokstaven er ulikt
+        && valgtTall == tilTall));
+    return false;
   }
 }
