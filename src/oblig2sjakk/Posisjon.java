@@ -15,8 +15,8 @@ public class Posisjon {
   private int kolonne;
 
   public Posisjon(String posisjon) {
-    rad = (posisjon.charAt(0) - 97);
-    kolonne = (posisjon.charAt(1) - 48) * -1 + 8;
+    kolonne = (posisjon.charAt(0) - 97);
+    rad = (posisjon.charAt(1) - 48) * -1 + 8;
   }
 
   public int getRad() {
