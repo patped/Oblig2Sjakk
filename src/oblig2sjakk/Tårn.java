@@ -28,25 +28,42 @@ public class Tårn extends Brikke {
     int y = posisjon.getRad();
     int x2 = nyPosisjon.getKolonne();
     int y2 = nyPosisjon.getRad();
-    
-    if (x2<x) {
+
+    if (x2 < x) {
       int tmp = x;
-      x = x2;
+      x = x2 + 1;
       x2 = tmp;
+    } else {
+      x2 -= 1;
     }
-    
-    if (y2<y) {
+
+    if (y2 < y) {
       int tmp = y;
-      y = y2;
+      y = y2 + 1;
       y2 = tmp;
+    } else {
+      y2 -= 1;
     }
-    
+
     double a = (y2 - y) / (x2 - x);
     double b = y - a * x;
-    
-    for ()
-    return p.y == a * p.x + b
-        && p.x + p.y > x + y
-        && p.x + p.y < x2 + y2;
+
+    for (int rad = 0; rad < brett.BRETTSTORRELSE; rad++) {
+      for (int kolonne = 0; kolonne < brett.BRETTSTORRELSE; kolonne++) {
+        if (brett.brikker[rad][kolonne] != null) {
+          Posisjon p = brett.brikker[rad][kolonne].posisjon;
+          if (p.getRad() == a * p.getKolonne() + b
+              && p.getKolonne() + p.getRad() > x + y
+              && p.getKolonne() + p.getRad() < x2 + y2) {
+            System.out.println("heihei");
+            return false;
+          }
+        }
+      }
+    }
+    System.out.println(nyPosisjon.getRad());
+    System.out.println(nyPosisjon.getKolonne());
+    Brikke brikke = brett.brikker[nyPosisjon.getRad()][nyPosisjon.getKolonne()];
+    return !(brikke != null && brikke.isFarge() == this.isFarge());
   }
 }
