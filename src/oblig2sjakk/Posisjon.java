@@ -22,6 +22,14 @@ public class Posisjon {
   public int getRad() {
     return rad;
   }
+
+  public void setRad(int rad) {
+    this.rad = rad;
+  }
+
+  public void setKolonne(int kolonne) {
+    this.kolonne = kolonne;
+  }
   
   public int getKolonne() {
     return kolonne;
