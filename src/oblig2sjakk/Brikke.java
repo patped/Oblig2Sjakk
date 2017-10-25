@@ -31,7 +31,7 @@ public abstract class Brikke extends Rectangle {
 
   private void setPosisjon(String rutenavn) {
     rad = (rutenavn.charAt(1) - 48) * -1 + 8;
-    kolonne = (rutenavn.charAt(1) - 97);    
+    kolonne = (rutenavn.charAt(1) - 97);
   }
 
   public boolean isFarge() {
