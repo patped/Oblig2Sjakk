@@ -21,15 +21,15 @@ class Brett {
         if (rad == 0 && (kolonne == 0 || kolonne == 7)) {//Legger til svart tårn
           brikker[kolonne][rad] = new Tårn(kolonne, rad, false, this);
         } else if (rad == 0 && kolonne == 4) {//Legger til Svart konge
-          brikker[kolonne][rad] = new Konge(kolChar + Integer.toString(rad + 1), false, this);
+          brikker[kolonne][rad] = new Konge(kolonne, rad, false, this);
         } else if (rad == 1) { // Legger til Svarte bønder
-          brikker[kolonne][rad] = new Bonde(kolChar + Integer.toString(rad + 1), false, this);
+          brikker[kolonne][rad] = new Bonde(kolonne, rad, false, this);
         } else if (rad == 6) { //Legger til  hvite bønder
-          brikker[kolonne][rad] = new Bonde(kolChar + Integer.toString(rad + 1), true, this);
+          brikker[kolonne][rad] = new Bonde(kolonne, rad, true, this);
         } else if (rad == 7 && (kolonne == 0 || kolonne == 7)) { //Legger til hvite tårn
           brikker[kolonne][rad] = new Tårn(kolonne, rad, true, this);
         } else if (rad == 7 && kolonne == 4) {//Legger til Hvit konge
-          brikker[kolonne][rad] = new Konge(kolChar + Integer.toString(rad + 1), true, this);
+          brikker[kolonne][rad] = new Konge(kolonne, rad, true, this);
         } else {
           brikker[kolonne][rad] = null;
         }
