@@ -18,6 +18,16 @@ public abstract class Brikke extends Rectangle {
     this.setFill(Color.TRANSPARENT);
     this.brett = brett;
   }
+  
+  public Brikke(int kolonne, int rad, boolean farge, Brett brett) {
+    posisjon.setKolonne(kolonne);
+    posisjon.setRad(rad);
+    this.farge = farge;
+    this.setHeight(lendge);
+    this.setWidth(lendge);
+    this.setFill(Color.TRANSPARENT);
+    this.brett = brett;
+  }
 
   public boolean isFarge() {
     return farge;
