@@ -58,7 +58,7 @@ public class Oblig2SjakkApp extends Application {
     rammeramme.setBottom(brukerBehandling);
 
     lagBrukerBehandling();
-    lagbrett(spillebrettet);
+    lagBrett(spillebrettet);
 
     Scene scene = new Scene(rammeramme,
         (STØRRELSEBRETT * RECTSTØRRELSE) + RECTSTØRRELSE * 2 - 10,
@@ -93,7 +93,7 @@ public class Oblig2SjakkApp extends Application {
     utførKnapp.setOnAction(new knapplytter());
   }
 
-  private void lagbrett(Brett spillebrettet) {
+  private void lagBrett(Brett spillebrettet) {
     for (int rad = 0; rad < STØRRELSEBRETT; rad++) {
       for (int kolonne = 0; kolonne < STØRRELSEBRETT; kolonne++) {
 
