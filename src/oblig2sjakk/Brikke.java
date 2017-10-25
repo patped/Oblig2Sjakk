@@ -20,8 +20,7 @@ public abstract class Brikke extends Rectangle {
   }
   
   public Brikke(int kolonne, int rad, boolean farge, Brett brett) {
-    posisjon.setKolonne(kolonne);
-    posisjon.setRad(rad);
+    posisjon = new Posisjon(kolonne,rad);
     this.farge = farge;
     this.setHeight(lendge);
     this.setWidth(lendge);
