@@ -55,22 +55,17 @@ public class Tårn extends Brikke {
       y2 = tmp;
     }
 
-    double a = (y2 - y) / (x2 - x);
+    double a = (y2 - y) / (x2 - x) + 1;
     double b = y - a * x;
 
     for (int rad = 0; rad < brett.BRETTSTORRELSE; rad++) {
       for (int kolonne = 0; kolonne < brett.BRETTSTORRELSE; kolonne++) {
         if (brett.brikker[kolonne][rad] != null) {
           Posisjon p = brett.brikker[kolonne][rad].posisjon;
-          if (rad == (int )(a * kolonne + b)
-            //  && kolonne + rad > x + y
-            //  && kolonne + rad < x2 + y2)
-              ){
-            System.out.println("kolonne rad " + kolonne + rad);
-            System.out.println("x y " + x + y);
-            System.out.println("x2 y2 " + x2 + y2);
-            System.out.println("heihei");
-            //return false;
+          if (rad == (int) (a * kolonne + b)
+              && kolonne + rad >= x + y
+              && kolonne + rad <= x2 + y2) {
+            return false;
           }
         }
       }
