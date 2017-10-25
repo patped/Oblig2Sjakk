@@ -19,7 +19,7 @@ class Brett {
       for (int kolonne = 0; kolonne < BRETTSTORRELSE; kolonne++) {
         kolChar = (char) (kolonne + 97);
         if (rad == 0 && (kolonne == 0 || kolonne == 7)) {//Legger til svart tårn
-          brikker[kolonne][rad] = new Tårn(kolChar + Integer.toString(rad + 1), false, this);
+          brikker[kolonne][rad] = new Tårn(kolonne, rad, false, this);
         } else if (rad == 0 && kolonne == 4) {//Legger til Svart konge
           brikker[kolonne][rad] = new Konge(kolChar + Integer.toString(rad + 1), false, this);
         } else if (rad == 1) { // Legger til Svarte bønder
@@ -27,7 +27,7 @@ class Brett {
         } else if (rad == 6) { //Legger til  hvite bønder
           brikker[kolonne][rad] = new Bonde(kolChar + Integer.toString(rad + 1), true, this);
         } else if (rad == 7 && (kolonne == 0 || kolonne == 7)) { //Legger til hvite tårn
-          brikker[kolonne][rad] = new Tårn(kolChar + Integer.toString(rad + 1), true, this);
+          brikker[kolonne][rad] = new Tårn(kolonne, rad, true, this);
         } else if (rad == 7 && kolonne == 4) {//Legger til Hvit konge
           brikker[kolonne][rad] = new Konge(kolChar + Integer.toString(rad + 1), true, this);
         } else {
