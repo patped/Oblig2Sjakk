@@ -12,8 +12,7 @@ public abstract class Brikke extends Rectangle {
   final double lendge = 55;
 
   public Brikke(String posisjon, boolean farge, Brett brett) {
-    rad = (posisjon.charAt(1) - 48) * -1 + 8;
-    kolonne = (posisjon.charAt(1) - 97);
+    setPosisjon(posisjon);
     this.farge = farge;
     this.setHeight(lendge);
     this.setWidth(lendge);
