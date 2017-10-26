@@ -142,12 +142,12 @@ public class Oblig2SjakkApp extends Application {
   }
 
   private void addKonge(int kolonne, int rad, boolean svartEllerHvit) {
-    Brikke tårnBrikke = new Konge("a1", svartEllerHvit, spillebrettet);
+    Brikke tårnBrikke = new Konge(kolonne, rad, svartEllerHvit, spillebrettet);
     forgrunn.add(tårnBrikke, kolonne, rad);
   }
 
   private void addBonde(int kolonne, int rad, boolean svartEllerHvit) {
-    Brikke tårnBrikke = new Bonde("a1", svartEllerHvit, spillebrettet);
+    Brikke tårnBrikke = new Bonde(kolonne, rad, svartEllerHvit, spillebrettet);
     forgrunn.add(tårnBrikke, kolonne, rad);
   }
 
